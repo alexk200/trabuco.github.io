@@ -1,0 +1,931 @@
+
+/*......................................................
+                    Trabuco-Design
+                 author: Trabuco-Design
+            © 2020 Todos los Derechos Reservados.
+........................................................*/
+
+/*.....................................................
+            Color / Fuentes Tipografica
+......................................................*/
+
+$font-primario: 'Roboto', Arial, sans-serif;
+$font-secundario: 'Montserrat', Arial, sans-serif;
+
+$color-primario: #ff8b6c;
+$color-secundario: #24292d;
+
+$texto-color: #777777;
+$titulo-color: #656363;
+$texto-footer-color: #b7b2b2;
+
+@font-face {
+    font-family: 'cocogoosedemibold';
+    src: url('../font/cocogoose_pro_semilight-trial-webfont.eot');
+    src: url('../font/cocogoose_pro_semilight-trial-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/cocogoose_pro_semilight-trial-webfont.woff') format('woff'),
+         url('../font/cocogoose_pro_semilight-trial-webfont.ttf') format('truetype'),
+         url('../font/cocogoose_pro_semilight-trial-webfont.svg#cocogoosedemibold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*.....................................................
+            Estilos Basicos / Tipografia
+......................................................*/
+
+body {
+    font-size: 16px;
+    font-weight: normal;
+    outline: none;
+}
+
+.wrapper {
+    transition: .3s ease all;
+}
+
+p { 
+    font-size: 1.0625em;/*17px*/
+    font-weight: 500;
+    font-family: $font-primario;
+}
+
+h2 { 
+    text-align: center;
+    color: $titulo-color; 
+    font-size: 1.5625em;/*25px*/
+    font-family: 'cocogoosedemibold';
+    margin: 0;
+}
+
+h3 { 
+    color: #000; 
+    font-family: 'cocogoosedemibold';
+}
+
+h4 {
+    color: #fff;
+    font-size: 1em;
+    font-weight: normal;
+    font-family: 'cocogoosedemibold';
+}
+
+hr {
+    display: block;
+    background: $color-primario;
+    border: none;
+    width: 4rem;/*64px*/
+    height: 2px;
+}
+
+a { 
+    text-decoration: none;
+    font-family: 'cocogoosedemibold';
+}
+
+li { list-style: none; }
+
+.servicios p { color: #777777; }
+
+#footer p, 
+#footer span {
+    color: #a7a2a2; 
+    font-weight: normal;
+    font-size: 0.875em;/*14px*/
+    font-family: $font-primario;
+}
+
+#portafolio p {
+    color: #000;
+    font-size: 1.0625em;/*17px*/
+    font-weight: 500;
+    font-family: $font-primario;
+}
+
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.grid-conten{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 10px;
+    overflow: hidden;
+    align-items: center;
+}
+
+/*.....................................................
+                        Hero
+......................................................*/
+
+.hero {
+    width: 100%;
+    max-width: 100%;
+    height: 100vh;
+    background: url("../img/background.jpg") fixed no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: space-evenly;
+    flex-wrap: wrap;
+
+    /*..............Menu...............*/
+    .menu {
+        background: #000;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        top: 0;
+        z-index: 20;
+        transition: .7s ease all;
+        clip-path: circle(82px at 100% -12px);
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .btn-abrir-menu {
+            width: 100%;
+            height: 5%;
+            font-size: 1.5625em;/*25px*/
+            padding: 0.75rem 1rem;/*12px - 16px*/
+            text-align: right;
+            
+            #burger-menu {
+                display: inline-block;
+                width: 27px;
+                height: 27px;
+                cursor: pointer;
+                overflow: hidden;
+                position: relative;
+
+                span,
+                span:before,
+                span:after {
+                    background: white;
+                    display: block;
+                    height: 4px;
+                    position: absolute;
+                
+                    transition: all 300ms ease;
+                }
+
+                span:before,
+                span:after { content: ""; }
+
+                span{
+                    right: 0px;
+                    top: 13px;
+                    width: 27px;
+                }
+
+                span:before{
+                    left: 0px;
+                    top: -10px;
+                    width: 16px;
+                }
+
+                span:after{
+                    left: 0px;
+                    top: 10px;
+                    width: 20px;
+                }
+            }
+
+            #burger-menu:hover span, 
+            #burger-menu:hover span:before, 
+            #burger-menu:hover span:after {
+                background: $color-primario;
+            }
+
+            #burger-menu.close span{
+                transform: rotate(-45deg);
+                top: 13px;
+                width: 27px;
+            }
+            
+            #burger-menu.close span:before{
+                top: 0px;
+                transform: rotate(90deg);
+                width: 27px;
+            }
+            
+            #burger-menu.close span:after{
+                top: 0px;
+                left: 0px;
+                transform: rotate(90deg);
+                width: 27px;
+                opacity: 0;
+            }
+        }
+
+        .enlc-menu{
+            width: 100%;
+
+            li{
+                list-style: none;
+                margin-bottom: 4%;
+
+                a{
+                    font-size: 2em;/*32px*/
+                    color: rgba(199, 198, 198, 0.75);
+                    margin: 0px;
+                    padding: 0px;
+                    transition: all 300ms ease;
+
+                    &:hover{
+                        color: #fff;
+                        letter-spacing: 3px;
+                    }
+                }
+            }
+        }
+    }
+
+    .menu.active {
+        clip-path: circle(200% at 99.4% -12px);
+        background: rgba(0, 0, 0, 0.8);
+    }
+
+    .menu.active li{ animation: desplazamiento 1s ease; }
+
+    /*.............Logo.............*/
+
+    .img-logo{
+        width: 34%;
+        height: auto;
+        padding: 1rem;/*16px*/
+        margin: 0;
+        transition: .4s ease all;
+        animation: entradaLogo .8s ease .8s forwards;
+        opacity: 1;
+
+        .logo{ max-width: 100%; }
+    }
+
+    /*...........Dark Mode...........*/
+
+    .dark-mode{
+        width: 100%;
+        height: auto;
+        margin: 0;
+        text-align: center;
+
+        .switch{
+            background: $color-secundario;
+            border-radius: 1000px;
+            border: none;
+            position: relative;
+            cursor: pointer;
+            outline: none;
+            display: inline-flex;
+            box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.59);
+
+            &::after {
+                content: "";
+                display: block;
+                width: 2rem;/*32px*/
+                height: 2rem;/*32px*/
+                position: absolute;
+                background: #f1f1f1;
+                top: 0px;
+                left: 0px;
+                right: unset;
+                border-radius: 100px;
+                transition: .3s ease all;
+                box-shadow: 0px 0px 2px 2px rgba(0,0,0,.2);
+            }
+
+            span {
+                width: 1.625rem;/*26px*/
+                height: 1.875rem;/*30px*/
+                line-height: 1.875rem;/*30px*/
+                display: block;
+                background: none;
+                color: #fff;
+            }
+        }
+    }
+}
+
+/*.....................................................
+                        Servicios
+......................................................*/
+
+.servicios {
+    width: 100%;
+    height: auto;
+    padding-top: 2rem;/*32px*/
+    padding-bottom: 1.125rem;/*18px*/
+    transition: .3s ease all;
+
+    .items {
+        grid-column: 1/-1;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-wrap: wrap;
+
+        .title {
+            width: 100%;
+            height: auto;
+            margin-top: 0px;
+            margin-bottom: 2rem;/*32px*/
+        }
+
+        .item {
+            width: 30%;
+            height: auto;
+            padding: 0px 16px;/*6px*/
+            align-self: baseline;
+            text-align: center;
+            margin-bottom: 1.875rem;/*30px*/
+            opacity: 0;
+            transition: .5s ease all;
+            background: rgba(243, 241, 241, 0.6);
+            border-radius: 14px;
+            box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.15);
+            box-sizing: border-box;
+
+            h3 {
+                margin: 0.5rem 0px;/*8px*/
+                font-size: 0.9375em;/*15px*/
+                font-weight: normal;
+            }
+
+            p {
+                text-align: center;
+                font-size: 1em;/*16px*/
+                line-height: 1.6em;
+                font-weight: 500;
+            }
+        }
+
+        .scroll-animado{ animation: scrollRight 1s; }
+    }
+}
+
+/*.....................................................
+                        Banner
+......................................................*/
+
+.banner {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: 480px;
+    background: url("../img/banner.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+/*.....................................................
+                        Portafolio
+......................................................*/
+
+.portafolio{
+    display: block;
+    width: 100%;
+    height: auto;
+    padding-top: 2rem;/*32px*/
+    padding-bottom: 1.5rem;/*24px*/
+    transition: .3s ease all;
+
+    /*............Tabs..........*/
+    .wrap-tabs{
+        position: relative;
+        width: 100%;
+        height: auto;
+        margin-top: 2rem;/*32px*/
+        margin-bottom: 0.625rem;/*10px*/
+
+        /*............Btn Tabs..........*/
+        .tabs{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            width: 100%;
+            height: auto;
+            position: relative;
+            padding-top: 2px;
+
+            &-item{
+                font-family: $font-secundario;
+                font-weight: 600;
+                color: #fff;
+                border-radius: 6px 0px 0px 0px;
+                line-height: 2.5;
+                padding: 0 1.5rem;/*24px*/
+                text-align: center;
+                background: $color-primario;
+                clip-path: polygon(0 0, 80% 0%, 100% 100%, 0% 100%);
+                cursor: pointer;
+                width: 20%;
+                height: auto;
+
+                &.active{
+                    background: #f3f1f1;
+                    line-height: 2.5;
+                    padding: 0 1rem;/*16px*/
+                    color: #000;
+                    z-index: 10;
+                    border-top: 2px solid rgba(154, 154, 154, 0.19);
+                    border-left: 3px solid rgba(154, 154, 154, 0.19);
+                    border-bottom: none;
+                    border-right: none;
+                }
+            }
+        }
+
+        /*............Tabs panel..........*/
+        .panels{
+            position: relative;
+            background: #f3f1f1;
+            width: 100%;
+            height: auto;
+            padding: 0.625rem 0px;/*10px*/
+            box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.15);
+
+            &-item{
+                position: absolute;
+                width: 100%;
+                height: auto;
+                top: 0px;
+                left: -5000px;
+                grid-column: 1/-1;
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+
+                /*.......galeria efecto hover.......*/
+                .conten-img{
+                    width: 40%;
+                    height: auto;
+                    border-radius: 0px 12px 12px 0px;
+                    overflow: hidden;
+
+                    .gallery-conten{
+                        width: 100%;
+                        max-width: 100%;
+                        height: auto;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        position: relative;
+                        overflow: hidden;
+                        cursor: pointer;
+                        transition: .3s ease all;
+
+                        .gallery-img{
+                            width: 100%;
+                            max-width: 100%;
+                            object-fit: cover;
+                            display: block;
+                            transition: .3s ease all;
+                        }
+                        .far{
+                            position: absolute;
+                            font-size: 3.75em;/*60px*/
+                            font-weight: 500;
+                            color: #fff;
+                            z-index: -1;
+                            transition: .3s ease all;
+                        }
+                    } 
+
+                    .gallery-conten:hover{ background: #000; }
+
+                    .gallery-conten:hover .gallery-img{
+                        transform: scale(1.2);
+                        filter: blur(1px);
+                        opacity: .4;
+                    }
+                    .gallery-conten:hover .far{ z-index: 1; }
+                }
+                /*.......galeria efecto hover Fin.......*/
+
+                .conten-text{
+                    width: 52%;
+                    height: auto;
+                    padding: 0px 1.75rem;/*28px*/
+
+                    .icon-log{
+                        margin-bottom: 0.75rem;/*12px*/
+
+                        ul{
+                            list-style: none;
+                            display: flex;
+                            padding: 0;
+                            margin: 0;
+
+                            li:nth-child(2){ margin: 0px 1.5rem;/*24px*/ }
+                        }
+                        [class^="fa"]{
+                            font-size: 5em;/*80px*/
+                            color: $color-primario;
+                        }
+                        .logo-identidad{
+                            display: block;
+                            background: url("../img/portafolio/identidad-logo.png") no-repeat;
+                            background-size: 100% 100%;
+                            width: 110px;
+                            height: 100px;
+                        }
+                    }
+
+                    .titulo-descripcion{
+                        h3{
+                            font-size: 1.75em;/*28px*/
+                            font-weight: 500;
+                            margin-bottom: 0.5rem;/*8px*/
+                        }
+                        p{
+                            font-size: 1.0625em;/*17px*/
+                            text-align: justify;
+                            font-weight: 500;
+                        }
+                    }
+                }
+
+                &.active{
+                    position: relative;
+                    left: 0px;
+                }
+            }
+
+            .modal{
+                position: fixed;
+                display: block;
+                top: 0px;
+                width: 100%;
+                height: 100%;
+                z-index: 1000;
+                overflow: hidden;
+                background: rgba(0,0,0,.9);
+            }
+        }
+    }
+}
+
+/*.....................................................
+                    Efecto Lightbox
+......................................................*/
+
+.lightbox-overlay {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 30;
+    display: flex;
+
+    .lightbox-conatiner {
+        position: relative;
+        width: 54%;
+        max-width: 60%;
+        margin: auto;
+        padding: 1rem;/*16px*/
+
+        .close-modal {
+            font-size: 1.125rem;/*18px*/
+            font-weight: 500;
+            color: #000;
+            background: #fff;
+            width: 1.875rem;/*30px*/
+            height: 1.875rem;/*30px*/
+            line-height: 1.8em;
+            text-align: center;
+            border-radius: 50%;
+            cursor: pointer;
+            top: 4px;
+            right: 4px;
+            position: absolute;
+        }
+
+        .lightbox-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 1rem;/*16px*/
+            margin-bottom: 0px;
+        }
+
+        .lightbox-description {
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: 500;
+            color: #fff;
+            font-family: $font-secundario;
+        }
+
+        .lightbox-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            font-size: 0.8em;
+            color: #fff;
+            font-family: $font-secundario;
+            align-items: center;
+
+            .nav-button {
+                color: $color-primario;
+                font-size: 1.375rem;/*22px*/
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+/*.....................................................
+                        Footer
+......................................................*/
+
+.footer {
+    width: 100%;
+    height: auto;
+    padding: 1.875rem 0px;/*30px*/
+    background: $color-secundario;
+    border-top: 5px solid $color-primario;
+
+    .items {
+        grid-column: 1/-1;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+
+        .item {
+            width: 50%;
+            overflow: hidden;
+
+            .title {
+                letter-spacing: 1px;
+                margin-bottom: 1rem;/*16px*/
+
+                h4 {
+                    margin-bottom: 0px;
+                    margin-top: 0px;
+                }
+
+                hr {
+                    display: inline-block;
+                    width: 2.5rem;/*40px*/
+                    text-align: left;
+                }
+            }
+
+            p { margin-bottom: 0.875rem;/*14px*/ }
+
+            .social-networks {
+                display: flex;
+                list-style: none;
+
+                li {
+                    margin-right: 0.875rem;/*14px*/
+                    
+                    a {
+                        color: #858e94;
+                        font-size: 1.875em;/*30px*/
+                        transition: .3s ease all;
+                    }
+
+                    a:hover { color: rgba(255, 255, 255, 0.72); }
+                }
+            }
+
+            span {
+                display: block;
+
+                [class^="fa"] {
+                    color: #fff;
+                    margin-right: 0.5rem;/*8px*/
+                }
+            }
+
+            span:nth-child(3) { margin-bottom: 0.375rem;/*6px*/ }
+
+            span:nth-child(3) [class^="fa"] { 
+                margin-right: 10px;
+                margin-left: 3px;
+             }
+
+            .copyright {
+                color: #a7a2a2;
+                display: block;
+                margin-top: 1rem;
+                font-family: 'Roboto', sans-serif;
+                font-size: 0.6875em;/*11px*/
+            }
+        }
+    }
+}
+
+/*.....................................................
+                      Dark Mode
+......................................................*/
+
+#switch.activo {
+    color: #000;
+    background: #ffa500;
+
+    &::after {
+        right: 0;
+        left: unset;
+    }
+    span { color: #000; }
+}
+
+#wrapper.activo {
+    background: #222222;
+
+    h2, p { color: rgba(255, 255, 255, 0.72) }
+
+    h3 { color: #fff; }
+
+    .servicios .item { background: rgba(47, 47, 47, 0.9); }
+
+    .panels { background: #2f2f2f; }
+
+    .tabs-item.active {
+        background: #2f2f2f;
+        color: rgba(255, 255, 255, 0.72);
+        border-top: 2px solid rgba(0, 0, 0, 0.46);
+        border-left: 3px solid rgba(0, 0, 0, 0.46);
+    }
+
+    .gallery-conten{
+        .far{
+            color: #000;
+        }
+    }
+    .gallery-conten:hover{
+        background: $color-primario;
+    }
+}
+
+/*.....................................................
+                      Keyframe
+......................................................*/
+
+@keyframes desplazamiento{
+    from { transform: translateY(1000px);}
+    to { transform: translateY(0px);}
+}
+
+@keyframes entradaLogo{
+    from {
+        transform: scale(.2);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes scrollRight{
+    from {
+        transform: translateX(60px);
+    }
+    to {
+        transform: translateX(0px);
+    }
+}
+
+/*.....................................................
+                    Media Queries
+......................................................*/
+
+@media (max-width: 1280px) { 
+    .container { width: 92%; }
+ }
+
+@media (max-width: 992px) { 
+
+    .hero .img-logo { width: 38%; }
+
+    .servicios .items .item { width: 42%; }
+
+    .portafolio .wrap-tabs .panels-item .conten-img { width: 43%; }
+
+    .portafolio .wrap-tabs .panels-item .conten-text { width: 50%; }
+
+    .portafolio .wrap-tabs .tabs-item { padding: 0 1rem; }
+ }
+
+@media (max-width: 768px) {
+
+    .hero .img-logo { width: 44%; }
+
+    .servicios .items .item { width: 42%; }
+
+    .banner { height: 400px; }
+
+    .portafolio .wrap-tabs .tabs { padding: 6px 0px; }
+
+    .portafolio .wrap-tabs .tabs-item { 
+        clip-path: none;
+        border-radius: 6px;
+        background: none;
+        color: #000;
+        margin: 5px 0px;
+        width: 40%;
+    }
+
+     .portafolio .wrap-tabs .tabs-item.active {
+         border: none;
+         color: #fff;
+         background: $color-primario;
+         box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.15);
+    }
+
+    .portafolio .wrap-tabs .panels-item .conten-img { 
+        width: 100%;
+        display: inline-flex;
+        border-radius: 0;
+        margin-bottom: 10px;
+    }
+
+    .portafolio .wrap-tabs .panels-item .conten-img .gallery-conten { width: 50%; }
+
+    .portafolio .wrap-tabs .panels-item .conten-text { width: 100%; }
+
+    .portafolio .wrap-tabs .panels-item .conten-text .icon-log ul,
+    .portafolio .wrap-tabs .panels-item .conten-text .icon-log,
+    .portafolio .wrap-tabs .panels-item .conten-text .icon-log .logo-identidad { 
+        text-align: center;
+        justify-content: center;
+        margin: 0 auto;
+        padding: 6px 0px;
+    }
+
+    .portafolio .wrap-tabs .panels-item .conten-text .titulo-descripcion h3, 
+    .portafolio .wrap-tabs .panels-item .conten-text .titulo-descripcion p { text-align: center; }
+
+    .lightbox-overlay .lightbox-conatiner {
+        width: 75%;
+        max-width: 80%;
+    }
+
+    .footer .items .item { 
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer .items .item:nth-child(1) {
+        order: 1;
+    }
+
+    .footer .items .item .social-networks { 
+        justify-content: center;
+        padding: 0;
+    }
+
+ }
+
+@media (max-width: 600px) {
+    .hero .menu{ clip-path: circle(76px at 100% -12px); }
+
+    .hero .img-logo { width: 60%; }
+
+    .servicios .items .item { width: 85%; }
+
+    .servicios .items .item p { text-align: center; }
+
+    .banner { height: 300px; }
+
+}
+
+@media (max-width: 425px) {
+    .hero .img-logo { width: 78%; }
+
+    .hero .menu .enlc-menu li { margin-bottom: 12%; }
+
+    .portafolio .wrap-tabs .panels-item .conten-img { display: block; }
+
+    .portafolio .wrap-tabs .panels-item .conten-img .gallery-conten { width: 100%; }
+
+    .banner {
+        background: url("../img/banner-movil.jpg") no-repeat;
+        background-position: center;
+        background-size: cover;
+        height: 420px;
+    }
+
+    .lightbox-overlay .lightbox-conatiner {
+        width: 90%;
+        max-width: 100%;
+    }
+}
